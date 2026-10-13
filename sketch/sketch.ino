@@ -3,7 +3,7 @@
 #define LGFX_USE_V1
 #include <LovyanGFX.hpp>
 
-// Include your newly named image array
+// Include your perfectly sized 240x320 image array
 #include "Untitled_Design.h"
 
 // ---------------- LovyanGFX Setup ----------------
@@ -63,17 +63,19 @@ void setup() {
 
   // Initialize the display
   tft.init();
-  tft.fillScreen(TFT_BLACK); 
+  
+  // FIX: Fill the screen with white so the transparent PNG background shows as white, not black
+  tft.fillScreen(TFT_WHITE); 
 
   Serial.println("Drawing Untitled_Design PNG...");
 
-  // Draw the image using the exact variable name from your generated code
+  // Draw the image starting at the top-left corner (0, 0)
   tft.drawPng(Untitled_Design, sizeof(Untitled_Design), 0, 0);
   
   Serial.println("Image drawn successfully!");
 }
 
 void loop() {
-  // Image remains on screen
+  // Do nothing, just display the image
   delay(1000);
 }
