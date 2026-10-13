@@ -3,8 +3,8 @@
 #define LGFX_USE_V1
 #include <LovyanGFX.hpp>
 
-// Include the image array you generated
-#include "asset_4.h"
+// Include your newly named image array
+#include "Untitled_Design.h"
 
 // ---------------- LovyanGFX Setup ----------------
 class LGFX : public lgfx::LGFX_Device {
@@ -59,18 +59,21 @@ void setup() {
   Serial.begin(115200);
   delay(1000);
 
-  // Initialize display
+  Serial.println("\n--- NORVI Display Boot ---");
+
+  // Initialize the display
   tft.init();
-  tft.fillScreen(TFT_WHITE); // White background to match the logo style
+  tft.fillScreen(TFT_BLACK); 
 
-  Serial.println("Drawing PNG...");
+  Serial.println("Drawing Untitled_Design PNG...");
 
-  // Draw the PNG image
-  // tft.drawPng(array_name, array_size, x_position, y_position);
-  // Using 0, 0 will draw it starting from the top-left corner.
-  tft.drawPng(Asset_4, sizeof(Asset_4), 0, 0);
+  // Draw the image using the exact variable name from your generated code
+  tft.drawPng(Untitled_Design, sizeof(Untitled_Design), 0, 0);
+  
+  Serial.println("Image drawn successfully!");
 }
 
 void loop() {
-  // Do nothing
+  // Image remains on screen
+  delay(1000);
 }
